@@ -1,0 +1,185 @@
+html, body {
+    background-color: #fff;
+    color: #2c3e50;
+    font-size: 15px;
+    line-height: 1.42857;
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+}
+h1 {
+    font-family: Impact,Haettenschweiler,"Franklin Gothic Bold",Charcoal,"Helvetica Inserat","Bitstream Vera Sans Bold","Arial Black","sans serif";
+}
+a {
+    color: #18bc9c;
+}
+a:hover, a:focus, a:active {
+    color: #362c57;
+}
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    background-color: #362c57;
+    background-image: radial-gradient(at 50% top , rgba(123, 84, 182, 0.6) 0px, rgba(123, 84, 182, 0) 75%), radial-gradient(at right top , rgba(127, 74, 162, 0.5) 0px, rgba(127, 74, 162, 0) 57%);
+    background-repeat: no-repeat;
+    background-size: 100% 1000px;
+    border: none;
+}
+.navbar a {
+    color: #c7c0de;
+}
+.navbar-toggle {
+    background-color: #c7c0de;
+}
+.navbar-toggle .icon-bar {
+    background-color: #362c57;
+}
+.navbar .nav li a {
+    border-bottom: 1px solid transparent;
+    margin-left: 40px;
+    padding-left: 0;
+    padding-right: 0;
+}
+.navbar .nav li a:hover {
+    background: none;
+    color: #fff;
+    border-bottom-color:  #c7c0de;
+}
+.navbar .nav li.active a {
+    border-bottom-color: #c7c0de;
+    color: #fff;
+}
+.lead {
+    font-size: 19px;
+}
+.btn-primary {
+    background-color: #18bc9c;
+    border-color: #18bc9c;
+    color: #fff;
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+    background-color: #2c3e50;
+}
+.btn-flat {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
+    border-color: transparent;
+    color: #FFFFFF;
+    transition: all 0.5s ease 0s;
+}
+.btn-flat:hover {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.6);
+    color: #e7e7e7;
+    border-color: transparent;
+}
+.bg-primary {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    background-color: #18bc9c;
+    color: #D6FFF7;
+}
+.bg-primary a {
+    color: #045C4C;
+}
+.bg-primary a:hover {
+    color: #00261F;
+}
+.bg-primary h3 {
+    color: #045C4C;
+}
+.jumbotron {
+    background-color: #362c57;
+    background-image: radial-gradient(at 50% top , rgba(123, 84, 182, 0.6) 0px, rgba(123, 84, 182, 0) 75%), radial-gradient(at right top , rgba(127, 74, 162, 0.5) 0px, rgba(127, 74, 162, 0) 57%);
+    background-repeat: no-repeat;
+    background-size: 100% 1000px;
+    color: #e7e4f1;
+    margin-bottom: 0;
+    border-bottom: 1px solid #e7e4f1;
+}
+.jumbotron h1 {
+    color: #18bc9c;
+}
+.jumbotron .btn {
+    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+}
+.jumbotron .btn-flat {
+    color: #e7e4f1;
+}
+.jumbotron .btn-primary.active {
+    background-color: #c7c0de;
+    color: #362c57;
+    border: none;
+}
+.container-content {
+    min-height: 650px;
+    padding-top: 40px;
+}
+.container-content .nav-pills a.nav-header {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #362c57;
+    cursor: default;
+}
+.container-content .nav-pills a.nav-header:hover {
+    background-color: transparent;
+    color: #362c57;
+}
+.container-content .nav-pills > li.active > a {
+    background-color: #2c3e50;
+}
+.container-content .nav-pills > li > a:hover {
+    background-color: #18bc9c;
+    color: #fff;
+}
+.container-content .nav-pills > li > .nav-sub > li > a {
+    font-size: 12px;
+    color: #362c57;
+    padding: 5px 7px;
+}
+.container-content .nav-pills > li > .nav-sub > li > a:hover {
+    background-color: transparent;
+    text-decoration: underline;
+}
+.container-content .page-header {
+    margin-bottom: 50px;
+    border-color: #c7c0de;
+}
+.container-content h4,
+.container-content h3,
+.container-content h2 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.container-content blockquote {
+    font-size: 14px;
+    border-left: none;
+    border-radius: 4px;
+    background-color: #c7c0de;
+    padding: 15px 30px;
+}
+.container-content blockquote a {
+    color: #2c3e50;
+    text-decoration: underline;
+}
+.footer {
+    margin-top: 40px;
+    background-color: #c7c0de;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+.github-btn {
+    border: 0 none;
+    overflow: hidden;
+}
+.bs-docs-social {
+    margin-bottom: 20px;
+}
+.bs-docs-social-buttons {
+    display: inline-block;
+    list-style: none outside none;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+.bs-docs-social-buttons li {
+    display: inline-block;
+    line-height: 1;
+    padding: 5px 8px;
+}

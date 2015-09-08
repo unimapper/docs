@@ -1,3 +1,4 @@
 site_name: UniMapper
-pages:
-  - Home: index.md
+theme_dir: 'custom_theme'
+extra:
+  pages_url: http://unimapper.github.com
