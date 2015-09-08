@@ -1,9 +1,3 @@
----
-layout: docs
-title: Adapter
-permalink: /docs/reference/adapter/
----
-
 Adapter is the middleman (or middlelady) between the app and the database, REST API or whatever else. The idea is that each of your data storage should have created such an adapter and every adpater's instance keeps a unique connection to it.
 
 > Every adapter should have its own requirements obviously passed in constructor, but all adapters must be registered under a unique name, which  should corespond with `@adapter` definition in [entities]({{ site.baseurl }}/docs/reference/entity#adapter).

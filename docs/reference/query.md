@@ -1,9 +1,3 @@
----
-layout: docs
-title: Query
-permalink: /docs/reference/query/
----
-
 Query gives you a unique way to access your stored data with united API, wherever they live. It communicates directly with adapters related to entity and the usage itself is very easy with fluent interface.
 
 ## Creating queries

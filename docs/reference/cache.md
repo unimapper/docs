@@ -1,9 +1,3 @@
----
-layout: docs
-title: Cache
-permalink: /docs/reference/cache/
----
-
 ## Implementation
 Library does not provide any built-in cache, but there is an interface `UniMapper\Cache\ICache` you can use with following predefined methods:
 

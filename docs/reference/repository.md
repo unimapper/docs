@@ -1,9 +1,3 @@
----
-layout: docs
-title: Repository
-permalink: /docs/reference/repository/
----
-
 Repository makes data accessing easy in an OOP friendly way. It takes care about [entities]({{ site.baseurl }}/docs/reference/entity), their persistance and loading. An additional advantage of repositories is that your model layer can be easily mocked in your unit tests.
 
 ## Default methods

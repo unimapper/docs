@@ -1,8 +1,3 @@
----
-layout: docs
-title: Reflection
-permalink: /docs/reference/reflection/
----
 ## Entity reflection
 Represents a single entity class information and every entity have it automatically. It stores list of all [property reflections](#property-reflection) defined in docblok.
 
