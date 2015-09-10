@@ -3,11 +3,11 @@ Just define your mask with `*`.
 
 **Example**
 
-~~~ php
+```php
 use UniMapper\NamingConventions as UNC;
 
 UNC::setMask("YourApp\Model\Entity\*", UNC::ENTITY_MASK); // Default is 'Model\Entity\*'
 UNC::setMask("YourApp\Model\Repository\*Repository", UNC::REPOSITORY_MASK); // Default is 'Model\Repository\*Repository'
-~~~
+```
 
 > All conventions must be set before you start using ORM.

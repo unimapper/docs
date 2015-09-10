@@ -5,24 +5,24 @@ Queries can be created in two ways.
 
 ### Query builder
 
-~~~ php
+```php
 $queryBuilder = new UniMapper\QueryBuilder("Entity"); // Entity class, name or instance
 $queryBuilder->select()->...;
-~~~
+```
 
 ### Entity
 
-~~~ php
+```php
 Entity::query()->select()->...;
-~~~
+```
 
 ## Executing queries
 
-~~~ php
+```php
 $connection = new UniMapper\Connection(new UniMapper\Mapper);
 $connection->registerAdapter(...);
 Entity::query()->select()->run($connection);
-~~~
+```
 
 ## Default queries
 
@@ -65,7 +65,7 @@ You can even create and register your own query. This can be useful in situation
 ### Definition
 First of all, you need to create custom query class.
 
-~~~ php
+```php
 namespace MyApp\Model\Query;
 
 class Search extends \UniMapper\Query
@@ -83,14 +83,14 @@ class Search extends \UniMapper\Query
         // Do some heavy stuff with adapter and return the result
     }
 }
-~~~
+```
 
 ### Registration
 Queries can be registered on [query builder](#query-builder).
 
-~~~ php
+```php
 UniMapper\QueryBuilder::registerQuery("MyApp\Model\Query\Search");
-~~~
+```
 
 > Method name of custom query is generated from class base name, but you can change it manually by overloading method *UniMapper\Query::getName()*, but remember that resulted query name must be unique and should not collidate with [standard queries](#standard-queries).
 
@@ -99,22 +99,22 @@ Provides common methods as [Trait](http://php.net/manual/en/language.oop5.traits
 
 ### Conditionable
 
-~~~ php
+```php
 $query->where("propertyName", "=", 1);
 $query->orWhere("propertyName", "=", 1);
-~~~
+```
 
 > Be aware of operator operator precedence (OR, AND), depending on your current [adapter]({{ site.baseurl }}/docs/reference/adapter/).
 
 #### Nested conditions
 
-~~~ php
+```php
 $query->whereAre(function(UniMapper\Query $query) {
     $query->where(...);
 });
 
 $query->orWhereAre(....);
-~~~
+```
 
 #### Operators
 

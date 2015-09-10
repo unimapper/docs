@@ -12,18 +12,18 @@ $entity->getValidator()
 ```
 
 ### Property
-~~~ php
+```php
 $entity->getValidator()
     ->on("text")
         ->addRule(Validator::FILLED, "Text is required!")
     ->on("email")
         ->addRule(Validator::EMAIL, "Invalid e-mail format!");
-~~~
+```
 
 > [Computed]({{ site.baseUrl }}/docs/reference/entity/#computed) properties can not be validated!
 
 ### Nested entities
-~~~ php
+```php
 $order->getValidator()
     ->on("product")
         ->addRule(Validator::FILLED, "Product is required!");
@@ -33,16 +33,16 @@ $order->customer->getValidator()
 $order->customer->branchOffice->getValidator()
     ->on("phone")
         ->addRule(Validator::FILLED, "Invalid phone!");
-~~~
+```
 
 ## Conditions
-~~~ php
+```php
 $entity->getValidator()
     ->on("ip")
         ->addCondition(Validator::FILLED)
             ->addRule(Validator::IP, "Invalid IP format!")
         ->endCondition()
-~~~
+```
 
 > Using `->on(...)` is not allowed inside the condition block!
 

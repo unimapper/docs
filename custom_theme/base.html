@@ -7,8 +7,14 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ base_url }}/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/rainbow.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    {% block extrahead %}
+    {% endblock %}
 </head>
 <body>
 <div role="navigation" class="navbar">
@@ -56,40 +62,55 @@
     <div class="row">
         <div class="col-md-3">
 
-            <form role="search" class="navbar-form navbar-right" action="search.html" method="GET">
-                <div class="input-group">
-                    <input id="mkdocs-search-query" autocomplete="off" type="text" placeholder="Search" class="form-control" name="q">
-                    <div class="input-group-btn">
-                        <button class="btn btn-primary" type="submit">Search</button>
-                    </div>
-                </div>
-            </form>
-
-            {% for nav_item in nav %}
-                {% if nav_item.children %}
-                <ul class="nav nav-pills nav-stacked text-right">
-                    <li><a class="nav-header text-right">{{ nav_item.title }}</a></li>
-                    {% for nav_item in nav_item.children %}
-                        <li class="{% if nav_item.active %}active{% endif %}">
-                            <a href="{{ nav_item.url }}">{{ nav_item.title }} <i class="fa fa-fw fa-square"></i></a>
-                            {% if nav_item.active %}
-                                <ul class="nav nav-sub">
-                                    {% for toc_item in toc %}
-                                    <li><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
-                                        {% for toc_item in toc_item.children %}
+            <ul class="nav nav-pills nav-stacked text-right">
+                <li>
+                    <form id="content_search" role="search" class="navbar-form navbar-right" action="{{ base_url }}/search.html" method="GET">
+                        <div class="input-group">
+                            <input  id="mkdocs-search-query" autocomplete="off" type="text" placeholder="Search" class="form-control" name="q">
+                            <div class="input-group-btn">
+                                <button class="btn btn-primary" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+                {% for nav_item in nav %}
+                    {% if nav_item.children %}
+                        <li><a class="nav-header text-right">{{ nav_item.title }}</a></li>
+                        {% for nav_item in nav_item.children %}
+                            <li class="{% if nav_item.active %}active{% endif %}">
+                                <a href="{{ nav_item.url }}">{{ nav_item.title }} <i class="fa fa-fw fa-square"></i></a>
+                                {% if nav_item.active %}
+                                    <ul class="nav nav-sub">
+                                        {% for toc_item in toc %}
                                         <li><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
+                                            {% for toc_item in toc_item.children %}
+                                            <li><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
+                                            {% endfor %}
                                         {% endfor %}
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
-                        </li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-            {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
 
         </div>
-        <div class="col-md-9"><h1 class="page-header">{{ page_title }}</h1>{{ content }}</div>
+        <div class="col-md-9">
+            <h1 class="page-header">{{ page_title }}{% block title %}{% endblock %}</h1>
+            {% block content %}
+                {{ content }}
+            {% endblock %}
+            {% if next_page or previous_page %}
+            <hr>
+            {% if previous_page %}
+            <a href="{{ previous_page.url }}" title="{{ previous_page.title }}" class="btn btn-default">Previous</a>
+            {% endif %}
+            {% if next_page %}
+            <a href="{{ next_page.url }}" title="{{ next_page.title }}" class="btn btn-primary">Next</a>
+            {% endif %}
+            {% endif %}
+        </div>
     </div>
 </div>
 <div class="footer text-center">
@@ -105,5 +126,12 @@
     </div>
     <p>Created and maintained under the <a href="">MIT</a> license &#169; .</p>
 </div>
+<script>
+    !function ($) {
+        $(function(){
+            window.prettyPrint && prettyPrint()
+        })
+    }(window.jQuery)
+</script>
 </body>
 </html>

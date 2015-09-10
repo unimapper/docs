@@ -9,10 +9,10 @@ Library does not provide any built-in cache, but there is an interface `UniMappe
 ## Usage
 You do not anything special, just register your cache on every repository and library takes care about reflection and queries caching automatically.
 
-~~~php
+```php
 $repository = new SomeRepository;
 $repository->setCache(/* Your cache instance */);
-~~~
+```
 
 ## Options
 Sometimes you need to tell how long is your data in cache valid or add some common tag, file dependencies, whatever else.
@@ -22,7 +22,7 @@ For example we have a query that should be cached and we want to add some tags a
 
 **SomeRepository.php**
 
-~~~php
+```php
 $this->query()
     ->select()
     ->cached(true, [
@@ -30,4 +30,4 @@ $this->query()
         UniMapper\Cache\ICache::EXPIRE => ["20 minutes"]
     ])
     ->run($this->connection());
-~~~
+```

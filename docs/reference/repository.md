@@ -37,13 +37,13 @@ You can optionally pass an array with filter specifying the criteria under which
 
 All criteria are stored in associative array, while the key name specify property we want to filter and value should be an array with [modifiers](#modifiers) as the key value.
 
-~~~ php
+```php
 ["id" => ["=" => 1]] // WHERE id = 1
-~~~
+```
 
 You can also combine multiple modifiers with one property.
 
-~~~ php
+```php
 [
 	"time" => [
 		">" => new DateTime,
@@ -51,7 +51,7 @@ You can also combine multiple modifiers with one property.
 	]
 ]
 // WHERE time > '...' AND time < '...'
-~~~
+```
 
 ### Modifiers
 
@@ -71,13 +71,13 @@ You can also combine multiple modifiers with one property.
 
 Groups are similar to parentheses in SQL and they are defined by a numeric array.
 
-~~~ php
+```php
 [
 	["time" => [">" => new DateTime]],
 	["time" => ["<" => new DateTime('+ 1 day')]
 ]
 // WHERE (time > '...') AND (time < '...')
-~~~
+```
 
 > There is no depth limit, groups can be nested as needed.
 
@@ -85,7 +85,7 @@ Groups are similar to parentheses in SQL and they are defined by a numeric array
 
 In the most cases you need to use OR modifier with these groups.
 
-~~~ php
+```php
 [
 	"or" => [
 		["time" => [">" => new DateTime]],
@@ -93,11 +93,11 @@ In the most cases you need to use OR modifier with these groups.
 	]
 ]
 // WHERE (time > '...') OR (time < '...')
-~~~
+```
 
 Your filter can be even more complicated with AND,OR combinations.
 
-~~~ php
+```php
 [
 	["id" => [">" = 1]],
 	[
@@ -108,4 +108,4 @@ Your filter can be even more complicated with AND,OR combinations.
 	]
 ]
 // WHERE (id > 1) AND ((time > '...') OR (time < '...'))
-~~~
+```

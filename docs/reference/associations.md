@@ -47,7 +47,7 @@ By default it's the owning side but if necessary you can change it with `M<N` in
 ## Getting data
 After you finished entity definition you can decide whether you want to join associated entities automatically during the [query]({{ site.baseurl }}/docs/reference/query) or not.
 
-~~~ php
+```php
 namespace MyApp\Model\Repository;
 
 class CustomerRepository extends \UniMapper\Entity
@@ -59,18 +59,18 @@ class CustomerRepository extends \UniMapper\Entity
             ->run($this->connection());
     }
 }
-~~~
+```
 
 ## Filters
 Filters allow you to modify associated result without any complications. Every filter must be registered globally on entity reflection and defined in property docblock as another option.
 
 **Registration**
 
-~~~ php
+```php
 UniMapper\Reflection\Property::registerAssocFilter("sortLimit", function (UniMapper\Association\Multi $assoc, $orderBy = "ASC", $limit = 10) {
     $assoc->limit($limit)->orderBy($orderBy);
 });
-~~~
+```
 
 **Usage**
 
@@ -84,19 +84,19 @@ Help you to manage entity or collection changes directly on property. Usage is s
 ### Multi
 If property type is collection of entities, typically ([OneToMany](#n---onetomany) or [ManyToMany](#mn---manytomany)).
 
-~~~ php
+```php
 $user = $repository->findOne(1);
 $user->orders()->attach(new Order["id" => 2]); // Order with id 2 is attached to user with id 1 so only one new record in join table will be added after save
 $repository->save($user);
-~~~
+```
 
 ### Single
 If property type is a single entity, typically ([ManyToOne](#n1---manytoone) or [OneToOne](#onetoone)).
 
-~~~ php
+```php
 $order = $repository->findOne(1);
 $order->invoice(new Invoice)->add(); // New invoice will be created with relation to order with id 1 after save
 $repository->save($order);
-~~~
+```
 
 > Changes on property can be cleaned with FALSE argument - `$entity->property(false)`.

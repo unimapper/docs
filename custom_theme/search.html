@@ -1,3 +1,12 @@
-<div id="mkdocs-search-results">
-    Sorry, page not found.
-</div>
+{% extends "base.html" %}
+
+{% block extrahead %}
+<script>var base_url = '{{ base_url }}';</script>
+<script data-main="{{ base_url }}/mkdocs/js/search.js" src="{{ base_url }}/mkdocs/js/require.js"></script>
+{% endblock %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<div id="mkdocs-search-results">Sorry, page not found.</div>
+{% endblock %}
