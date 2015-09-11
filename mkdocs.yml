@@ -1,4 +1,3 @@
-site_name: UniMapper
-theme_dir: 'custom_theme'
-extra:
-  pages_url: http://unimapper.github.com
+site_name: UniMapper docs
+repo_url: https://github.com/unimapper/docs
+theme_dir: 'theme'

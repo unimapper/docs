@@ -111,6 +111,11 @@ a:hover, a:focus, a:active {
     min-height: 650px;
     padding-top: 40px;
 }
+.container-content .large-btn {
+    background-color: #362c57;
+    background-image: radial-gradient(at 50% top , rgba(123, 84, 182, 0.6) 0px, rgba(123, 84, 182, 0) 75%), radial-gradient(at right top , rgba(127, 74, 162, 0.5) 0px, rgba(127, 74, 162, 0) 57%);
+    background-repeat: no-repeat;
+}
 .container-content .nav-pills form {
     margin: 0 0 20px 0;
 }
@@ -161,9 +166,17 @@ a:hover, a:focus, a:active {
     font-size: 14px;
     border-left: none;
     border-radius: 4px;
-    background-color: #C9B21C;
+    background-color: #ffcd00;
     padding: 15px 30px;
     color: #362c57;
+}
+.container-content blockquote a {
+    text-decoration: underline;
+    color: #362c57;
+}
+.container-content blockquote a:hover {
+    text-decoration: underline;
+    color: #18bc9c;
 }
 .footer {
     margin-top: 40px;
@@ -200,6 +213,6 @@ code {
     padding: 3px 6px 3px 6px;
     font-size: 13px;
 }
-code.hljs {
+pre code.hljs {
     padding: 12px;
 }

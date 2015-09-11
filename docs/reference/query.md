@@ -3,14 +3,14 @@ Query gives you a unique way to access your stored data with united API, whereve
 # Creating queries
 Queries can be created in two ways.
 
-## Query builder
+## With builder
 
 ```php
 $queryBuilder = new UniMapper\QueryBuilder("Entity"); // Entity class, name or instance
 $queryBuilder->select()->...;
 ```
 
-## Entity
+## With entity
 
 ```php
 Entity::query()->select()->...;
@@ -67,12 +67,12 @@ Queries can be registered on [query builder](#query-builder).
 UniMapper\QueryBuilder::registerQuery("MyApp\Model\Query\Search");
 ```
 
-> Method name of custom query is generated from class base name, but you can change it manually by overloading method *UniMapper\Query::getName()*, but remember that resulted query name must be unique and should not collidate with [standard queries](#standard-queries).
+> Method name of custom query is generated from class base name, but you can change it manually by overloading method *UniMapper\Query::getName()*, but remember that resulted query name must be unique and should not collidate with [default queries](#default-queries).
 
-# Common methods
+## Useful methods
 Provides common methods as [Trait](http://php.net/manual/en/language.oop5.traits.php).
 
-## Conditionable
+### Conditionable
 
 ```php
 $query->where("propertyName", "=", 1);

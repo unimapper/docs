@@ -10,26 +10,34 @@ The most widely used relation states that some entity can be associated with man
 
 Let's say we have a customer who has a lot of orders in our e-shop.
 
-`@property Order[] $orders m:assoc(1:N=customerId)`
+```
+@property Order[] $orders m:assoc(1:N) m:assoc-by(customerId)
+```
 
 ## 1:1 - OneToOne
 Entity may only be associated with one other entity by some foreign key.
 
 For example that we have a customer and his detail.
 
-`@property CustomerDetail $detail m:assoc(1:1=customerId)`
+```php
+@property CustomerDetail $detail m:assoc(1:1=customerId)
+```
 
 ## M:N - ManyToMany
 Entity can be associated with many other entities and vice-versa. Because both entities can have many related entities a new join table will need to be created to keep track of these relations.
 
 For example that we have employees working in multiple departments.
 
-`@property Departments[] $departments m:assoc(M:N=employeeId|employee_department|departmentId)`
+```
+@property Departments[] $departments m:assoc(M:N) m:assoc-by(employeeId|employee_department|departmentId)
+```
 
 ## N:1 - ManyToOne
 We have an order and we want to get its customer.
 
-`@property Customer $customer m:assoc(N:1=customerId)`
+```
+@property Customer $customer m:assoc(N:1) m:assoc-by(customerId)
+```
 
 # Remote associations
 
@@ -40,7 +48,9 @@ You can even associate entities with cross-adapter relationship and the ORM take
 If your are using [M:N](#mn---manytomany) relationship as [remote](#remote-associations) association you may need to declare on which side join table is.
 By default it's the owning side but if necessary you can change it with `M<N` in definition.
 
-`@property Departments[] $departments m:assoc(M<N=employeeId|employee_department|departmentId)`
+```
+@property Departments[] $departments m:assoc(M<N) m:assoc-by(employeeId|employee_department|departmentId)
+```
 
 > Using `M>N` is the same as `M:N`.
 
@@ -74,7 +84,9 @@ UniMapper\Reflection\Property::registerAssocFilter("sortLimit", function (UniMap
 
 **Usage**
 
-`@property Orders[] $orders m:assoc(M:N=userId|user_order|orderId) m:assoc-filter-sortLimit(DESC|10)`
+```
+@property Orders[] $orders m:assoc(M:N) m:assoc-by(userId|user_order|orderId) m:assoc-filter-sortLimit(DESC|10)
+```
 
 > Only one filter option can be defined on every property
 
