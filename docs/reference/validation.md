@@ -1,9 +1,8 @@
-Suits perfectly to situations when you need to validate data in your model layer or developing front-end application bundled with some REST api together.
-Validation syntax can be very simple or much advanced with very clear writing without any IF hell in your code.
+Suits perfectly to situations when you need to validate data in your model layer or developing front-end application bundled with some REST api together. Validation syntax can be very simple or much advanced with very clear writing without any IF hell in your code.
 
-## Rules
+# Rules
 
-### Entity
+## Entity
 ```php
 $entity->getValidator()
     ->addRule(function(\UniMapper\Entity $entity) {
@@ -11,7 +10,7 @@ $entity->getValidator()
     }, "Text must be foo!");
 ```
 
-### Property
+## Property
 ```php
 $entity->getValidator()
     ->on("text")
@@ -20,9 +19,9 @@ $entity->getValidator()
         ->addRule(Validator::EMAIL, "Invalid e-mail format!");
 ```
 
-> [Computed]({{ site.baseUrl }}/docs/reference/entity/#computed) properties can not be validated!
+> [Computed](entity#computed) properties can not be validated!
 
-### Nested entities
+## Nested entities
 ```php
 $order->getValidator()
     ->on("product")
@@ -35,7 +34,7 @@ $order->customer->branchOffice->getValidator()
         ->addRule(Validator::FILLED, "Invalid phone!");
 ```
 
-## Conditions
+# Conditions
 ```php
 $entity->getValidator()
     ->on("ip")
@@ -46,5 +45,5 @@ $entity->getValidator()
 
 > Using `->on(...)` is not allowed inside the condition block!
 
-## Usage
+# Usage
 You can set validation rules to every single entity instance by calling `getValidator()` method.

@@ -1,4 +1,4 @@
-Naming conventions are neccesary if you want to have your [entity]({{ site.baseurl }}/docs/reference/entity/) or [repository]({{ site.baseurl }}/docs/reference/repository/) classes under the certain [namespace](http://www.php.net/manual/en/language.namespaces.php).
+Naming conventions are necessary if you want to have your [entity](entity) or [repository](repository) classes under the certain namespace.
 Just define your mask with `*`.
 
 **Example**

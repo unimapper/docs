@@ -75,22 +75,28 @@
                 </li>
                 {% for nav_item in nav %}
                     {% if nav_item.children %}
-                        <li><a class="nav-header text-right">{{ nav_item.title }}</a></li>
-                        {% for nav_item in nav_item.children %}
-                            <li class="{% if nav_item.active %}active{% endif %}">
-                                <a href="{{ nav_item.url }}">{{ nav_item.title }} <i class="fa fa-fw fa-square"></i></a>
-                                {% if nav_item.active %}
-                                    <ul class="nav nav-sub">
-                                        {% for toc_item in toc %}
-                                        <li><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
-                                            {% for toc_item in toc_item.children %}
-                                            <li><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
-                                            {% endfor %}
-                                        {% endfor %}
-                                    </ul>
+                    <li><a class="nav-header text-right">{{ nav_item.title }}</a></li>
+                    {% for nav_item in nav_item.children %}
+                    <li class="{% if nav_item.active %}active{% endif %}">
+                        <a href="{{ nav_item.url }}">{{ nav_item.title }} <i class="fa fa-fw fa-square"></i></a>
+                        {% if nav_item.active %}
+                        <ul class="nav nav-sub">
+                            {% for toc_item in toc %}
+                            <li>
+                                <a href="{{ toc_item.url }}"><strong>{{ toc_item.title }}</strong></a>
+                                {% if toc_item.children %}
+                                <ul class="nav nav-sub-sub">
+                                    {% for toc_item in toc_item.children %}
+                                    <li><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
                                 {% endif %}
                             </li>
-                        {% endfor %}
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
                     {% endif %}
                 {% endfor %}
             </ul>

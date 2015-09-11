@@ -1,4 +1,4 @@
-## Implementation
+# Implementation
 Library does not provide any built-in cache, but there is an interface `UniMapper\Cache\ICache` you can use with following predefined methods:
 
 - load ( `mixed` key )
@@ -6,7 +6,7 @@ Library does not provide any built-in cache, but there is an interface `UniMappe
 
 > [Options](#options) should be implemented in `save()` method.
 
-## Usage
+# Usage
 You do not anything special, just register your cache on every repository and library takes care about reflection and queries caching automatically.
 
 ```php
@@ -14,7 +14,7 @@ $repository = new SomeRepository;
 $repository->setCache(/* Your cache instance */);
 ```
 
-## Options
+# Options
 Sometimes you need to tell how long is your data in cache valid or add some common tag, file dependencies, whatever else.
 For these purposes every cache keeps some predefined unique constants with these options.
 

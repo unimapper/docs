@@ -1,22 +1,22 @@
 Query gives you a unique way to access your stored data with united API, wherever they live. It communicates directly with adapters related to entity and the usage itself is very easy with fluent interface.
 
-## Creating queries
+# Creating queries
 Queries can be created in two ways.
 
-### Query builder
+## Query builder
 
 ```php
 $queryBuilder = new UniMapper\QueryBuilder("Entity"); // Entity class, name or instance
 $queryBuilder->select()->...;
 ```
 
-### Entity
+## Entity
 
 ```php
 Entity::query()->select()->...;
 ```
 
-## Executing queries
+# Executing queries
 
 ```php
 $connection = new UniMapper\Connection(new UniMapper\Mapper);
@@ -24,45 +24,20 @@ $connection->registerAdapter(...);
 Entity::query()->select()->run($connection);
 ```
 
-## Default queries
+# Default queries
 
-### select ( `string` property1, `string` property2 .. )
-Get all records as entity collection. You can use the following options:
+- **select** ( `string` property1, `string` property2 .. ) - get all records as entity collection. You can use options  [selectable](#selectable), [limit](#limit), [conditionable](#conditionable), [sortable](#sortable) and cached( `boolean`, `array` [options](cache#options) )
+- **selectOne** ( `mixed` primaryValue ) - get a single unique record by primary value. You can use option [selectable](#selectable).
+- **insert** ( `array` $data ) - insert a new record.
+- **update** ( `array` $data ) - update record. You can use option [conditionable](#conditionable).
+- **updateOne** ( `mixed` primaryValue ) - update record by primary value.
+- **delete** - delete record. You can use option [conditionable](#conditionable).
+- **deleteOne** ( `mixed` primaryValue ) - delete record by primary value.
 
-- [selectable](#selectable)
-- [limit](#limit)
-- [conditionable](#conditionable)
-- [sortable](#sortable)
-- cached( `boolean`, `array` [options]({{ site.baseurl}}/docs/reference/cache#options) )
-
-### selectOne ( `mixed` primaryValue )
-Get a single unique record by primary value.
-
-- [selectable](#selectable)
-
-### insert ( `array` $data )
-Insert a new record
-
-### update ( `array` $data )
-Update record.
-
-- [conditionable](#conditionable)
-
-### updateOne ( `mixed` primaryValue )
-Update record by primary value.
-
-### delete ()
-Delete record.
-
-- [conditionable](#conditionable)
-
-### deleteOne ( `mixed` primaryValue )
-Delete record by primary value.
-
-## Custom queries
+# Custom queries
 You can even create and register your own query. This can be useful in situations such as when you need optimized query to the database and you know that it will be used in the same form several times in your code.
 
-### Definition
+## Definition
 First of all, you need to create custom query class.
 
 ```php
@@ -85,7 +60,7 @@ class Search extends \UniMapper\Query
 }
 ```
 
-### Registration
+## Registration
 Queries can be registered on [query builder](#query-builder).
 
 ```php
@@ -94,19 +69,19 @@ UniMapper\QueryBuilder::registerQuery("MyApp\Model\Query\Search");
 
 > Method name of custom query is generated from class base name, but you can change it manually by overloading method *UniMapper\Query::getName()*, but remember that resulted query name must be unique and should not collidate with [standard queries](#standard-queries).
 
-## Common methods
+# Common methods
 Provides common methods as [Trait](http://php.net/manual/en/language.oop5.traits.php).
 
-### Conditionable
+## Conditionable
 
 ```php
 $query->where("propertyName", "=", 1);
 $query->orWhere("propertyName", "=", 1);
 ```
 
-> Be aware of operator operator precedence (OR, AND), depending on your current [adapter]({{ site.baseurl }}/docs/reference/adapter/).
+> Be aware of operator operator precedence (OR, AND), depending on your current [adapter](adapter).
 
-#### Nested conditions
+### Nested conditions
 
 ```php
 $query->whereAre(function(UniMapper\Query $query) {
@@ -116,19 +91,19 @@ $query->whereAre(function(UniMapper\Query $query) {
 $query->orWhereAre(....);
 ```
 
-#### Operators
+### Operators
 
 
-### Selectable
+## Selectable
 
 - select( `string`, `array`, ... )
 - associate ( 'string', `array`, ... )
 
-### Sortable
+## Sortable
 
 - orderBy( `string` $name, `string` $direction  = self::ASC )
 
-### Limit
+## Limit
 
 - limit( `int` )
 - offset( `int` )
