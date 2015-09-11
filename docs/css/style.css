@@ -195,8 +195,10 @@ pre {
     padding: 0;
 }
 code {
-    background-color: #2c3e50;
+    background-color: #474949;
     color: #fff;
+    padding: 3px 6px 3px 6px;
+    font-size: 13px;
 }
 code.hljs {
     padding: 12px;
