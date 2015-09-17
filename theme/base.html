@@ -61,16 +61,22 @@
 <div class="container-content container">
     {% if current_page and current_page.is_homepage %}
         <div class="row text-center">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <a href="{{ base_url }}/get-started/install" class="btn">
                     <h1><i class="fa fa-power-off fa-4x"></i></h1>
                     <h2>Get started</h2>
                 </a>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <a href="{{ base_url }}/reference/adapter" class="btn">
                     <h1><i class="fa fa-book fa-4x"></i></h1>
                     <h2>Reference</h2>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="https://codedoc.pub/unimapper/unimapper/master/index.html" class="btn">
+                    <h1><i class="fa fa-code fa-4x"></i></h1>
+                    <h2>API</h2>
                 </a>
             </div>
         </div>
