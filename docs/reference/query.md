@@ -7,20 +7,20 @@ Queries can be created in two ways.
 
 ```php
 $queryBuilder = new UniMapper\QueryBuilder("Entity"); // Entity class, name or instance
-$queryBuilder->select()->...;
+$queryBuilder->select()-> ...
 ```
 
 ## With entity
 
 ```php
-Entity::query()->select()->...;
+Entity::query()->select()-> ...
 ```
 
 # Executing queries
 
 ```php
 $connection = new UniMapper\Connection(new UniMapper\Mapper);
-$connection->registerAdapter(...);
+$connection->registerAdapter( ... );
 Entity::query()->select()->run($connection);
 ```
 
@@ -97,7 +97,7 @@ $query->orWhereAre(....);
 ## Selectable
 
 - select( `string`, `array`, ... )
-- associate ( 'string', `array`, ... )
+- associate ( `string`, `array`, ... )
 
 ## Sortable
 
